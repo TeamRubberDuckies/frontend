@@ -1,10 +1,11 @@
 import React from "react";
 import { Typography } from '@mui/material'
+import Board from './leaderboard/board';
 
 const App = () => {
     return(
         <div>
-            <Typography variant = "h1"> Hello World</Typography>
+            <Board/>
         </div>
 
     );
