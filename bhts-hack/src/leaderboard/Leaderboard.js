@@ -10,6 +10,8 @@ import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 import Link from '@mui/material/Link';
 
+import Board from './board';
+
 
 
 // TODO remove, this demo shouldn't need to reset the theme.
@@ -33,7 +35,10 @@ export default function Leaderboard() {
         >
           <Toolbar />
           <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
-            View Leaderboard Here
+            <div>
+              <Board/>
+            </div>
+
           </Container>
         </Box>
     </ThemeProvider>
