@@ -10,28 +10,35 @@ import BarChartIcon from '@mui/icons-material/BarChart';
 import LayersIcon from '@mui/icons-material/Layers';
 import AssignmentIcon from '@mui/icons-material/Assignment';
 
-export const mainListItems = (
+export default function MainListItems(props) {
+    return (
   <React.Fragment>
-    <ListItemButton>
+    <ListItemButton onClick={() => props.onChange('dashboard')}>
       <ListItemIcon>
         <DashboardIcon />
       </ListItemIcon>
       <ListItemText primary="Dashboard" />
     </ListItemButton>
-    <ListItemButton>
+    <ListItemButton onClick={() => props.onChange('addtransaction')}>
+      <ListItemIcon>
+        <ShoppingCartIcon />
+      </ListItemIcon>
+      <ListItemText primary="Add Transaction" />
+    </ListItemButton>
+    <ListItemButton onClick={() => props.onChange('transactions')}>
       <ListItemIcon>
         <ShoppingCartIcon />
       </ListItemIcon>
       <ListItemText primary="Transactions" />
     </ListItemButton>
-    <ListItemButton>
+    <ListItemButton onClick={() => props.onChange('setbudget')}>
       <ListItemIcon>
         {/* <PeopleIcon /> */}
         <LayersIcon />
       </ListItemIcon>
       <ListItemText primary="Set Budget" />
     </ListItemButton>
-    <ListItemButton>
+    <ListItemButton onClick={() => props.onChange('leaderboard')}>
       <ListItemIcon>
         <BarChartIcon />
       </ListItemIcon>
@@ -45,6 +52,7 @@ export const mainListItems = (
     </ListItemButton> */}
   </React.Fragment>
 );
+}
 
 // export const secondaryListItems = (
 //   <React.Fragment>

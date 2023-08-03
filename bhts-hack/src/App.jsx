@@ -1,5 +1,5 @@
 import React from "react";
-import Dashboard from './dashboard/Dashboard';
+import Main from './main/Main';
 import Onboarding from './onboarding/Onboarding';
 
 const App = () => {
@@ -14,7 +14,7 @@ const App = () => {
     return (
         user === null || users === null
             ? <Onboarding setUser={setUser} setUsers={setUsers} />
-            : <Dashboard user={user} users={users} />
+            : <Main user={user} users={users} />
     );
 }
 
