@@ -14,7 +14,6 @@ import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import MainListItems from '../dashboard/listItems';
 import Dashboard from '../dashboard/Dashboard';
 import AddTransaction from '../addTransaction/AddTransaction';
-import Transactions from '../transactions/Transactions';
 import SetBudget from '../setBudget/SetBudget';
 import Leaderboard from '../leaderboard/Leaderboard';
 
@@ -72,7 +71,6 @@ const Page = ({screen, user, users, setUser}) => {
     switch (screen) {
         case 'dashboard': return <Dashboard user={user} users={users} />;
         case 'addtransaction': return <AddTransaction user={user} users={users} setUser={setUser} />;
-        case 'transactions': return <Transactions user={user} users={users} />;
         case 'setbudget': return <SetBudget user={user} users={users} setUser={setUser} />;
         case 'leaderboard': return <Leaderboard user={user} users={users} />;
         default: return 'Select a page on the left.';
