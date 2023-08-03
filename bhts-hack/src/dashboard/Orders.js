@@ -8,51 +8,57 @@ import TableRow from '@mui/material/TableRow';
 import Title from './Title';
 
 // Generate Order Data
-function createData(id, date, name, shipTo, paymentMethod, amount) {
-  return { id, date, name, shipTo, paymentMethod, amount };
+
+function createData( id, date, Purchase, amount) {
+  
+  return { id, date, Purchase, amount };
 }
 
-const rows = [
-  createData(
-    0,
-    '16 Mar, 2019',
-    'Barbie Movie',
-    'Tupelo, MS',
-    'VISA ⠀•••• 3719',
-    22.00,
-  ),
-  createData(
-    1,
-    '16 Mar, 2019',
-    'Oppenheimer',
-    'London, UK',
-    'VISA ⠀•••• 2574',
-    22.00,
-  ),
-  createData(2, '16 Mar, 2019', 'RTX 4080', 'Boston, MA', 'MC ⠀•••• 1253', 1400.00),
-  createData(
-    3,
-    '16 Mar, 2019',
-    'Economy seats to Madrid Round trip',
-    'Gary, IN',
-    'AMEX ⠀•••• 2000',
-    1054.39,
-  ),
-  createData(
-    4,
-    '15 Mar, 2019',
-    'Bruce Springsteen Concert',
-    'Long Branch, NJ',
-    'VISA ⠀•••• 5919',
-    212.79,
-  ),
-];
+
+
 
 function preventDefault(event) {
   event.preventDefault();
 }
 
-export default function Orders() {
+export default function Orders(props) {
+
+  //console.log(props);
+  //console.log(props.user.transactions.length);
+   var i;
+   let len = props.user.transactions.length;
+   console.log(len)
+   if(len < 10){
+     i = 0
+   }
+   else{
+    i = props.user.transactions.length -10;
+  }
+  let count = 0;
+  // console.log(props.user.transactions[i].timestamp)
+   const rows = [  ];
+
+  while(i < props.user.transactions.length){
+    rows [count] = createData(
+      count,
+      props.user.transactions[i].timestamp,
+      props.user.transactions[i].purchase,
+      props.user.transactions[i].amount,
+    )  
+    i++;
+    count++;
+  }
+
+  // const rows = [
+  //   createData(
+  //     count,
+  //     props.user.transactions[count].timestamp,
+  //     props.user.transactions[count].purchase,
+  //     props.user.transactions[count].amount,
+
+  //   )
+  // ];
+
   return (
     <React.Fragment>
       <Title>Recent Transactions</Title>
@@ -61,7 +67,7 @@ export default function Orders() {
         <TableHead>
           <TableRow>
             <TableCell>Date</TableCell>
-            <TableCell>Purpose</TableCell>
+            <TableCell>Purchase</TableCell>
             {/* <TableCell>Ship To</TableCell> */}
             {/* <TableCell>Payment Method</TableCell> */}
             <TableCell align="right"> Amount</TableCell>
@@ -71,7 +77,7 @@ export default function Orders() {
           {rows.map((row) => (
             <TableRow key={row.id}>
               <TableCell>{row.date}</TableCell>
-              <TableCell>{row.name}</TableCell>
+              <TableCell>{row.Purchase}</TableCell>
               {/* <TableCell>{row.shipTo}</TableCell> */}
               {/* <TableCell>{row.paymentMethod}</TableCell> */}
               <TableCell align="right">{`$${row.amount}`}</TableCell>
@@ -79,9 +85,9 @@ export default function Orders() {
           ))}
         </TableBody>
       </Table>
-      <Link color="primary" href="#" onClick={preventDefault} sx={{ mt: 3 }}>
+      {/* <Link color="primary" href="#" onClick={preventDefault} sx={{ mt: 3 }}>
         See more orders
-      </Link>
+      </Link> */}
     </React.Fragment>
   );
 }

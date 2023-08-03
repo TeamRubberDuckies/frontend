@@ -1,6 +1,7 @@
 import React from "react";
 import Dashboard from './dashboard/Dashboard';
 import Onboarding from './onboarding/Onboarding';
+import Orders from "./dashboard/Orders";
 
 const App = () => {
     const [user, setUser] = React.useState(null);
@@ -14,7 +15,7 @@ const App = () => {
     return (
         user === null || users === null
             ? <Onboarding setUser={setUser} setUsers={setUsers} />
-            : <Dashboard user={user} users={users} />
+            : <Dashboard user={user} users={users} /> 
     );
 }
 
