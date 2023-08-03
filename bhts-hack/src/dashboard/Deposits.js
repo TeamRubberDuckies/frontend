@@ -15,6 +15,11 @@ export default function Deposits(props) {
     i++;
   }
 
+  var today = new Date(),
+    date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+
+    
+
   return (
     <React.Fragment>
       <Title>Budget </Title>
@@ -22,7 +27,7 @@ export default function Deposits(props) {
         ${props.user.budget}
       </Typography>
       <Typography color="text.secondary" sx={{ flex: 1 }}>
-      current date
+      { date}
       </Typography>
       <Title>Total Amount Spent</Title>
       
@@ -30,7 +35,7 @@ export default function Deposits(props) {
        ${total}
       </Typography>
       <Typography color="text.secondary" sx={{ flex: 1 }}>
-        current date 
+      { date }
       </Typography>
       {/* <div>
         <Link color="primary" href="#" onClick={preventDefault}>
