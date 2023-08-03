@@ -17,7 +17,8 @@ import Link from '@mui/material/Link';
 import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import NotificationsIcon from '@mui/icons-material/Notifications';
-import { mainListItems, secondaryListItems } from './listItems';
+//import { mainListItems, secondaryListItems } from './listItems';
+import { mainListItems } from './listItems';
 import Chart from './Chart';
 import Deposits from './Deposits';
 import Orders from './Orders';
@@ -119,13 +120,13 @@ export default function Dashboard() {
               noWrap
               sx={{ flexGrow: 1 }}
             >
-              Dashboard
+              Competitive Savings App
             </Typography>
-            <IconButton color="inherit">
+            {/* <IconButton color="inherit">
               <Badge badgeContent={4} color="secondary">
                 <NotificationsIcon />
               </Badge>
-            </IconButton>
+            </IconButton> */}
           </Toolbar>
         </AppBar>
         <Drawer variant="permanent" open={open}>
@@ -144,8 +145,8 @@ export default function Dashboard() {
           <Divider />
           <List component="nav">
             {mainListItems}
-            <Divider sx={{ my: 1 }} />
-            {secondaryListItems}
+            {/* <Divider sx={{ my: 1 }} />
+            {secondaryListItems} */}
           </List>
         </Drawer>
         <Box
@@ -156,16 +157,16 @@ export default function Dashboard() {
                 ? theme.palette.grey[100]
                 : theme.palette.grey[900],
             flexGrow: 1,
-            height: '100vh',
+            height: '200vh',
             overflow: 'auto',
           }}
         >
           <Toolbar />
           <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
             <Grid container spacing={3}>
-              {/* Chart */}
+              {/* Was Chart Now is Recent transactions */}
               <Grid item xs={12} md={8} lg={9}>
-                <Paper
+                {/* <Paper
                   sx={{
                     p: 2,
                     display: 'flex',
@@ -174,29 +175,33 @@ export default function Dashboard() {
                   }}
                 >
                   <Chart />
+                </Paper> */}
+                <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
+                  <Orders />
                 </Paper>
+                
               </Grid>
-              {/* Recent Deposits */}
+              {/* Was Recent Deposits Now Budget*/}
               <Grid item xs={12} md={4} lg={3}>
                 <Paper
                   sx={{
                     p: 2,
                     display: 'flex',
                     flexDirection: 'column',
-                    height: 240,
+                    height: 440,
                   }}
                 >
                   <Deposits />
                 </Paper>
               </Grid>
-              {/* Recent Orders */}
+              {/* Recent Orders Now Recent Transactions*/}
               <Grid item xs={12}>
-                <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
+                {/* <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
                   <Orders />
-                </Paper>
+                </Paper> */}
               </Grid>
             </Grid>
-            <Copyright sx={{ pt: 4 }} />
+            {/* <Copyright sx={{ pt: 4 }} /> */}
           </Container>
         </Box>
       </Box>

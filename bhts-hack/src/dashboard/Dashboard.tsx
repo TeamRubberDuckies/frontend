@@ -17,7 +17,8 @@ import Link from '@mui/material/Link';
 import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import NotificationsIcon from '@mui/icons-material/Notifications';
-import { mainListItems, secondaryListItems } from './listItems';
+//import { mainListItems, secondaryListItems } from './listItems';
+import { mainListItems } from './listItems';
 import Chart from './Chart';
 import Deposits from './Deposits';
 import Orders from './Orders';
@@ -148,8 +149,8 @@ export default function Dashboard() {
           <Divider />
           <List component="nav">
             {mainListItems}
-            <Divider sx={{ my: 1 }} />
-            {secondaryListItems}
+            {/* <Divider sx={{ my: 1 }} />
+            {secondaryListItems} */}
           </List>
         </Drawer>
         <Box
@@ -169,7 +170,7 @@ export default function Dashboard() {
             <Grid container spacing={3}>
               {/* Chart */}
               <Grid item xs={12} md={8} lg={9}>
-                <Paper
+                {/* <Paper
                   sx={{
                     p: 2,
                     display: 'flex',
@@ -178,10 +179,7 @@ export default function Dashboard() {
                   }}
                 >
                   <Chart />
-                </Paper>
-              </Grid>
-              {/* Recent Deposits */}
-              <Grid item xs={12} md={4} lg={3}>
+                </Paper> */}
                 <Paper
                   sx={{
                     p: 2,
@@ -192,7 +190,21 @@ export default function Dashboard() {
                 >
                   <Deposits />
                 </Paper>
+
               </Grid>
+              {/* Recent Deposits */}
+              {/* <Grid item xs={12} md={4} lg={3}>
+                <Paper
+                  sx={{
+                    p: 2,
+                    display: 'flex',
+                    flexDirection: 'column',
+                    height: 240,
+                  }}
+                >
+                  <Deposits />
+                </Paper>
+              </Grid> */}
               {/* Recent Orders */}
               <Grid item xs={12}>
                 <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
@@ -200,7 +212,7 @@ export default function Dashboard() {
                 </Paper>
               </Grid>
             </Grid>
-            <Copyright sx={{ pt: 4 }} />
+            {/* <Copyright sx={{ pt: 4 }} /> */}
           </Container>
         </Box>
       </Box>

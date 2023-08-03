@@ -16,32 +16,32 @@ const rows = [
   createData(
     0,
     '16 Mar, 2019',
-    'Elvis Presley',
+    'Barbie Movie',
     'Tupelo, MS',
     'VISA ⠀•••• 3719',
-    312.44,
+    22.00,
   ),
   createData(
     1,
     '16 Mar, 2019',
-    'Paul McCartney',
+    'Oppenheimer',
     'London, UK',
     'VISA ⠀•••• 2574',
-    866.99,
+    22.00,
   ),
-  createData(2, '16 Mar, 2019', 'Tom Scholz', 'Boston, MA', 'MC ⠀•••• 1253', 100.81),
+  createData(2, '16 Mar, 2019', 'RTX 4080', 'Boston, MA', 'MC ⠀•••• 1253', 1400.00),
   createData(
     3,
     '16 Mar, 2019',
-    'Michael Jackson',
+    'Economy seats to Madrid Round trip',
     'Gary, IN',
     'AMEX ⠀•••• 2000',
-    654.39,
+    1054.39,
   ),
   createData(
     4,
     '15 Mar, 2019',
-    'Bruce Springsteen',
+    'Bruce Springsteen Concert',
     'Long Branch, NJ',
     'VISA ⠀•••• 5919',
     212.79,
@@ -55,15 +55,16 @@ function preventDefault(event) {
 export default function Orders() {
   return (
     <React.Fragment>
-      <Title>Recent Orders</Title>
-      <Table size="small">
+      <Title>Recent Transactions</Title>
+      {/* <Table size="small"> */}
+        <Table size='LARGE'>
         <TableHead>
           <TableRow>
             <TableCell>Date</TableCell>
-            <TableCell>Name</TableCell>
-            <TableCell>Ship To</TableCell>
-            <TableCell>Payment Method</TableCell>
-            <TableCell align="right">Sale Amount</TableCell>
+            <TableCell>Purpose</TableCell>
+            {/* <TableCell>Ship To</TableCell> */}
+            {/* <TableCell>Payment Method</TableCell> */}
+            <TableCell align="right"> Amount</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -71,8 +72,8 @@ export default function Orders() {
             <TableRow key={row.id}>
               <TableCell>{row.date}</TableCell>
               <TableCell>{row.name}</TableCell>
-              <TableCell>{row.shipTo}</TableCell>
-              <TableCell>{row.paymentMethod}</TableCell>
+              {/* <TableCell>{row.shipTo}</TableCell> */}
+              {/* <TableCell>{row.paymentMethod}</TableCell> */}
               <TableCell align="right">{`$${row.amount}`}</TableCell>
             </TableRow>
           ))}
