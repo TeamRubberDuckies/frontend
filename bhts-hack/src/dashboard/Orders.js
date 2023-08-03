@@ -26,15 +26,15 @@ export default function Orders(props) {
   console.log(props);
  console.log(props.user.firstName);
   console.log(props.user.transactions.length);
-   var i;
+   var i = 0;
    let len = props.user.transactions.length;
    console.log(len)
-   if(len < 10){
-     i = 0
-   }
-   else{
-    i = props.user.transactions.length -10;
-  }
+  //  if(len < 10){
+  //    i = 0
+  //  }
+  //  else{
+  //   i = props.user.transactions.length -10;
+  // }
   let count = 0;
   // console.log(props.user.transactions[i].timestamp)
    const rows = [  ];
