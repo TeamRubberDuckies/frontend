@@ -7,22 +7,35 @@ function preventDefault(event) {
   event.preventDefault();
 }
 
-export default function Deposits() {
+export default function Deposits(props) {
+  var i = 0;
+  var total = 0;
+  while(i < props.user.transactions.length){
+    total += props.user.transactions[i].amount
+    i++;
+  }
+
+  var today = new Date(),
+    date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+
+    
+
   return (
     <React.Fragment>
-      <Title>Budget Start</Title>
+      <Title>Budget </Title>
       <Typography component="p" variant="h4">
-        $3,024.00
+        ${props.user.budget}
       </Typography>
       <Typography color="text.secondary" sx={{ flex: 1 }}>
-        on 1 March, 2019
+      { date}
       </Typography>
-      <Title>Budget Left</Title>
+      <Title>Total Amount Spent</Title>
+      
       <Typography component="p" variant="h4">
-        $1500.00
+       ${total}
       </Typography>
       <Typography color="text.secondary" sx={{ flex: 1 }}>
-        on 16 March, 2019
+      { date }
       </Typography>
       {/* <div>
         <Link color="primary" href="#" onClick={preventDefault}>

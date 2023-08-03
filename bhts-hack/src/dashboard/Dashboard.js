@@ -69,7 +69,7 @@ export default function Dashboard(props) {
                     height: 440,
                   }}
                 >
-                  <Deposits />
+                  <Deposits user={props.user} users={props.users}/>
                 </Paper>
               </Grid>
               {/* Recent Orders Now Recent Transactions*/}
