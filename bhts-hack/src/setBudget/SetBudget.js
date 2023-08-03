@@ -18,6 +18,8 @@ import axios from 'axios';
 const defaultTheme = createTheme();
 
 export default function Budget(props) {
+    const [success, setSuccess] = React.useState(false);
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -34,9 +36,11 @@ export default function Budget(props) {
     }).then(function (response) {
         console.log(response.data.user); //response.data contains user
         props.setUser(response.data.user);
+        setSuccess(true);
       })
       .catch(function (error) {
         console.error(error);
+        setSuccess(false);
         alert(error.response.data.message);
       });
   };
@@ -84,10 +88,12 @@ export default function Budget(props) {
             >
               Set Your Budget
             </Button>
-            <Grid container>
-              <Grid item>
-              </Grid>
-            </Grid>
+            {
+                success &&
+                <Typography color='green' textAlign='center'>
+                    Budget Changed!
+                </Typography>
+            }
           </Box>
         </Box>
       </Container>

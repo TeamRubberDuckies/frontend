@@ -71,7 +71,7 @@ const defaultTheme = createTheme();
 const Page = ({screen, user, users, setUser}) => {
     switch (screen) {
         case 'dashboard': return <Dashboard user={user} users={users} />;
-        case 'addtransaction': return <AddTransaction user={user} users={users} />;
+        case 'addtransaction': return <AddTransaction user={user} users={users} setUser={setUser} />;
         case 'transactions': return <Transactions user={user} users={users} />;
         case 'setbudget': return <SetBudget user={user} users={users} setUser={setUser} />;
         case 'leaderboard': return <Leaderboard user={user} users={users} />;
