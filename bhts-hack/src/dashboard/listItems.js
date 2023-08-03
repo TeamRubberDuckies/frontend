@@ -25,12 +25,6 @@ export default function MainListItems(props) {
       </ListItemIcon>
       <ListItemText primary="Add Transaction" />
     </ListItemButton>
-    <ListItemButton onClick={() => props.onChange('transactions')}>
-      <ListItemIcon>
-        <ShoppingCartIcon />
-      </ListItemIcon>
-      <ListItemText primary="Transactions" />
-    </ListItemButton>
     <ListItemButton onClick={() => props.onChange('setbudget')}>
       <ListItemIcon>
         {/* <PeopleIcon /> */}
