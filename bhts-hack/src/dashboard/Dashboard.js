@@ -22,6 +22,7 @@ import { mainListItems } from './listItems';
 import Chart from './Chart';
 import Deposits from './Deposits';
 import Orders from './Orders';
+import axios from 'axios';
 
 function Copyright(props) {
   return (
@@ -90,6 +91,23 @@ export default function Dashboard() {
   const toggleDrawer = () => {
     setOpen(!open);
   };
+
+  React.useEffect(() => {
+    console.log('sending post request');
+    axios.post('https://api.mittaldev.com/bhts-dev/ping', {
+        pass: 'dev-886FX2e2',
+        firstName: 'Fred',
+        lastName: 'Flintstone'
+      })
+      .then(function (response) {
+        console.log(response.data); //response.data
+      })
+      .catch(function (error) {
+        console.error(error);
+      });
+  }, []);
+
+  
 
   return (
     <ThemeProvider theme={defaultTheme}>
