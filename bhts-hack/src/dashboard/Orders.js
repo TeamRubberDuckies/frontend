@@ -23,8 +23,9 @@ function preventDefault(event) {
 
 export default function Orders(props) {
 
-  //console.log(props);
-  //console.log(props.user.transactions.length);
+  console.log(props);
+ console.log(props.user.firstName);
+  console.log(props.user.transactions.length);
    var i;
    let len = props.user.transactions.length;
    console.log(len)

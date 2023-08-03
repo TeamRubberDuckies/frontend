@@ -23,7 +23,7 @@ import Orders from './Orders';
 // TODO remove, this demo shouldn't need to reset the theme.
 const defaultTheme = createTheme();
 
-export default function Dashboard() {
+export default function Dashboard(props) {
 
   return (
     <ThemeProvider theme={defaultTheme}>
@@ -55,7 +55,7 @@ export default function Dashboard() {
                   <Chart />
                 </Paper> */}
                 <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
-                  <Orders />
+                  <Orders user={props.user} users={props.users}/>
                 </Paper>
                 
               </Grid>
@@ -75,7 +75,7 @@ export default function Dashboard() {
               {/* Recent Orders Now Recent Transactions*/}
               <Grid item xs={12}>
                 {/* <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
-                  <Orders />
+                  <Orders  />
                 </Paper> */}
               </Grid>
             </Grid>
