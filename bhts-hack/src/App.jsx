@@ -14,7 +14,7 @@ const App = () => {
     return (
         user === null || users === null
             ? <Onboarding setUser={setUser} setUsers={setUsers} />
-            : <Main user={user} users={users} />
+            : <Main user={user} users={users} setUser={setUser} />
     );
 }
 

@@ -68,12 +68,12 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 // TODO remove, this demo shouldn't need to reset the theme.
 const defaultTheme = createTheme();
 
-const Page = ({screen, user, users}) => {
+const Page = ({screen, user, users, setUser}) => {
     switch (screen) {
         case 'dashboard': return <Dashboard user={user} users={users} />;
         case 'addtransaction': return <AddTransaction user={user} users={users} />;
         case 'transactions': return <Transactions user={user} users={users} />;
-        case 'setbudget': return <SetBudget user={user} users={users} />;
+        case 'setbudget': return <SetBudget user={user} users={users} setUser={setUser} />;
         case 'leaderboard': return <Leaderboard user={user} users={users} />;
         default: return 'Select a page on the left.';
     }
@@ -155,7 +155,7 @@ export default function Main(props) {
             overflow: 'auto',
           }}
         >
-        <Page screen={screen} user={props.user} users={props.users}/>
+        <Page screen={screen} user={props.user} users={props.users} setUser={props.setUser}/>
         </Box>
       </Box>
     </ThemeProvider>
