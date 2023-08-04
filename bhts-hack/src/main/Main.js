@@ -16,6 +16,7 @@ import Dashboard from '../dashboard/Dashboard';
 import AddTransaction from '../addTransaction/AddTransaction';
 import SetBudget from '../setBudget/SetBudget';
 import Leaderboard from '../leaderboard/Leaderboard';
+import Button from '@mui/material/Button';
 
 
 const drawerWidth = 240;
@@ -85,6 +86,10 @@ export default function Main(props) {
 
   const [screen, setScreen] = React.useState('dashboard');
 
+  const signOut = () => {
+    props.setUser(null);
+  };
+
   return (
     <ThemeProvider theme={defaultTheme}>
       <Box sx={{ display: 'flex' }}>
@@ -114,13 +119,8 @@ export default function Main(props) {
               noWrap
               sx={{ flexGrow: 1 }}
             >
-              Savings Showdown
+              Competitive Savings App
             </Typography>
-            {/* <IconButton color="inherit">
-              <Badge badgeContent={4} color="secondary">
-                <NotificationsIcon />
-              </Badge>
-            </IconButton> */}
           </Toolbar>
         </AppBar>
         <Drawer variant="permanent" open={open}>
@@ -140,6 +140,14 @@ export default function Main(props) {
           <List component="nav">
             <MainListItems onChange={setScreen} />
           </List>
+          <Button
+              style={{ maxWidth: '100px', alignSelf: 'center' }}
+              variant="contained"
+              sx={{ mt: 3, mb: 2 }}
+              onClick={signOut}
+            >
+              Log Out
+            </Button>
         </Drawer>
         <Box
           component="main"
