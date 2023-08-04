@@ -7,7 +7,7 @@ import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 import Deposits from './Deposits';
 import Orders from './Orders';
-
+import Typography from '@mui/material/Typography';
 
 
 // TODO remove, this demo shouldn't need to reset the theme.
@@ -31,45 +31,44 @@ export default function Dashboard(props) {
         >
           <Toolbar />
           <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
-            <Grid container spacing={3}>
-              {/* Was Chart Now is Recent transactions */}
-              <Grid item xs={12} md={8} lg={9}>
-                {/* <Paper
-                  sx={{
-                    p: 2,
-                    display: 'flex',
-                    flexDirection: 'column',
-                    height: 240,
-                  }}
-                >
-                  <Chart />
-                </Paper> */}
-                <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
-                  <Orders user={props.user} users={props.users}/>
-                </Paper>
-                
-              </Grid>
-              {/* Was Recent Deposits Now Budget*/}
-              <Grid item xs={12} md={4} lg={3}>
-                <Paper
-                  sx={{
-                    p: 2,
-                    display: 'flex',
-                    flexDirection: 'column',
-                    height: 440,
-                  }}
-                >
-                  <Deposits user={props.user} users={props.users}/>
-                </Paper>
-              </Grid>
-              {/* Recent Orders Now Recent Transactions*/}
-              <Grid item xs={12}>
-                {/* <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
-                  <Orders  />
-                </Paper> */}
-              </Grid>
+            <Grid container direction='column'>
+                <Grid container>
+                    <Grid item xs={12} md={8} lg={9}>
+                        <Paper sx={{ p: 2, display: 'flex', flexDirection: 'row', marginBottom: 4, marginRight: 4, padding: 3, }}>
+                            <Typography variant='h5' style={{ marginRight: 10 }}>
+                                Hello,
+                            </Typography>
+
+                            <Typography variant='h5' color='gray'>
+                                {props.user.firstName} {props.user.lastName}
+                            </Typography>
+                        </Paper>
+                    </Grid>
+                </Grid>
+                <Grid container>
+                {/* Was Chart Now is Recent transactions */}
+                <Grid item xs={12} md={8} lg={9}>
+                    <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column', marginRight: 4, }}>
+                        <Orders user={props.user} users={props.users}/>
+                    </Paper>
+                    
+                </Grid>
+                <Grid item xs={12} md={4} lg={3}>
+                    <Paper
+                    sx={{
+                        p: 2,
+                        display: 'flex',
+                        flexDirection: 'column',
+                        height: 550,
+                    }}
+                    >
+                    <Deposits user={props.user} users={props.users}/>
+                    </Paper>
+                </Grid>
+                </Grid>
             </Grid>
           </Container>
+            
         </Box>
     </ThemeProvider>
   );
