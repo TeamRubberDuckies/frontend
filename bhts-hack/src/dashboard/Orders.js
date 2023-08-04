@@ -39,7 +39,7 @@ export default function Orders(props) {
             <TableRow key={row.id}>
               <TableCell>{(new Date(row.timestamp)).toLocaleString()}</TableCell>
               <TableCell>{row.purchase}</TableCell>
-              <TableCell align="right">{`$${row.amount}`}</TableCell>
+              <TableCell align="right">{`$${row.amount.toFixed(2)}`}</TableCell>
             </TableRow>
           ))}
         </TableBody>

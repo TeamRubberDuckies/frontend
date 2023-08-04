@@ -30,15 +30,9 @@ export default function Deposits(props) {
 
       <Title>Money Remaining</Title>
       
-      <Typography component="p" variant="h4" sx={{ flex: 1 }}>
+      <Typography component="p" variant="h4" sx={{ flex: 1 }} color={props.user.budget-total > 0 ? 'green' : 'red'}>
        ${(props.user.budget-total).toFixed(2)}
       </Typography>
-      
-      {/* <div>
-        <Link color="primary" href="#" onClick={preventDefault}>
-          View balance
-        </Link>
-      </div> */}
     </React.Fragment>
   );
 }
