@@ -5,20 +5,24 @@ import TableCell from '@mui/material/TableCell';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import TablePagination from '@mui/material/TablePagination';
+import TableFooter from '@mui/material/TableFooter';
 import Title from './Title';
-import { TableFooter } from '@mui/material';
 
 // Generate Order Data
 
-const rowsPerPage = 8;
 
 export default function Orders(props) {
 
     const [tablePage, setTablePage] = React.useState(0);
+    const [rowsPerPage, setRowsPerPage] = React.useState(props.user.transactions.length < 8 ? props.user.transactions.length : 8);
 
     const onPageChange = (_, page) => setTablePage(page);
 
     const rows = props.user.transactions.slice().reverse();
+
+    React.useEffect(() => {
+        setRowsPerPage(props.user.transactions.length < 8 ? props.user.transactions.length : 8);
+    }, [props.user.transactions.length]);
 
   return (
     <React.Fragment>
