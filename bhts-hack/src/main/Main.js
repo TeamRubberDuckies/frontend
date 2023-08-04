@@ -114,7 +114,7 @@ export default function Main(props) {
               noWrap
               sx={{ flexGrow: 1 }}
             >
-              Competitive Savings App - Welcome,{props.user.firstName} {props.user.lastName}
+              Competitive Savings App
             </Typography>
             {/* <IconButton color="inherit">
               <Badge badgeContent={4} color="secondary">

@@ -3,10 +3,6 @@ import Link from '@mui/material/Link';
 import Typography from '@mui/material/Typography';
 import Title from './Title';
 
-function preventDefault(event) {
-  event.preventDefault();
-}
-
 export default function Deposits(props) {
   var i = 0;
   var total = 0;
@@ -15,28 +11,29 @@ export default function Deposits(props) {
     i++;
   }
 
-  var today = new Date(),
-    date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
-
-    
+  const today = (new Date()).toDateString();
 
   return (
     <React.Fragment>
-      <Title>Budget </Title>
-      <Typography component="p" variant="h4">
-        ${props.user.budget}
+        <Typography color="text.secondary" fontSize={25} sx={{ flex: 1 }} textAlign='center'>
+      { today }
       </Typography>
-      <Typography color="text.secondary" sx={{ flex: 1 }}>
-      { date}
+      <Title>Budget </Title>
+      <Typography component="p" variant="h4" sx={{ flex: 1 }}>
+        ${props.user.budget.toFixed(2)}
       </Typography>
       <Title>Total Amount Spent</Title>
       
-      <Typography component="p" variant="h4">
-       ${total}
+      <Typography component="p" variant="h4" sx={{ flex: 1 }}>
+       ${total.toFixed(2)}
       </Typography>
-      <Typography color="text.secondary" sx={{ flex: 1 }}>
-      { date }
+
+      <Title>Money Remaining</Title>
+      
+      <Typography component="p" variant="h4" sx={{ flex: 1 }}>
+       ${(props.user.budget-total).toFixed(2)}
       </Typography>
+      
       {/* <div>
         <Link color="primary" href="#" onClick={preventDefault}>
           View balance

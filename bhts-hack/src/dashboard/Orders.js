@@ -1,94 +1,54 @@
 import * as React from 'react';
-import Link from '@mui/material/Link';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
+import TablePagination from '@mui/material/TablePagination';
 import Title from './Title';
+import { TableFooter } from '@mui/material';
 
 // Generate Order Data
 
-function createData( id, date, Purchase, amount) {
-  
-  return { id, date, Purchase, amount };
-}
-
-
-
-
-function preventDefault(event) {
-  event.preventDefault();
-}
+const rowsPerPage = 8;
 
 export default function Orders(props) {
 
-  console.log(props);
- console.log(props.user.firstName);
-  console.log(props.user.transactions.length);
-   var i = 0;
-   let len = props.user.transactions.length;
-   console.log(len)
-  //  if(len < 10){
-  //    i = 0
-  //  }
-  //  else{
-  //   i = props.user.transactions.length -10;
-  // }
-  let count = 0;
-  // console.log(props.user.transactions[i].timestamp)
-   const rows = [  ];
+    const [tablePage, setTablePage] = React.useState(0);
 
-  while(i < props.user.transactions.length){
-    rows [count] = createData(
-      count,
-      props.user.transactions[i].timestamp,
-      props.user.transactions[i].purchase,
-      props.user.transactions[i].amount,
-    )  
-    i++;
-    count++;
-  }
+    const onPageChange = (_, page) => setTablePage(page);
 
-  // const rows = [
-  //   createData(
-  //     count,
-  //     props.user.transactions[count].timestamp,
-  //     props.user.transactions[count].purchase,
-  //     props.user.transactions[count].amount,
-
-  //   )
-  // ];
+    const rows = props.user.transactions.slice().reverse();
 
   return (
     <React.Fragment>
       <Title>Recent Transactions</Title>
-      {/* <Table size="small"> */}
-        <Table size='LARGE'>
+        <Table>
         <TableHead>
           <TableRow>
             <TableCell>Date</TableCell>
             <TableCell>Purchase</TableCell>
-            {/* <TableCell>Ship To</TableCell> */}
-            {/* <TableCell>Payment Method</TableCell> */}
             <TableCell align="right"> Amount</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row) => (
+          {rows.slice(
+        tablePage * rowsPerPage,
+        tablePage * rowsPerPage + rowsPerPage,
+      ).map((row) => (
             <TableRow key={row.id}>
-              <TableCell>{row.date}</TableCell>
-              <TableCell>{row.Purchase}</TableCell>
-              {/* <TableCell>{row.shipTo}</TableCell> */}
-              {/* <TableCell>{row.paymentMethod}</TableCell> */}
+              <TableCell>{(new Date(row.timestamp)).toLocaleString()}</TableCell>
+              <TableCell>{row.purchase}</TableCell>
               <TableCell align="right">{`$${row.amount}`}</TableCell>
             </TableRow>
           ))}
         </TableBody>
+        <TableFooter>
+        <TableRow>
+            <TablePagination count={props.user.transactions.length} rowsPerPage={rowsPerPage} page={tablePage} onPageChange={onPageChange} rowsPerPageOptions={[]} />
+        </TableRow>
+        </TableFooter>
       </Table>
-      {/* <Link color="primary" href="#" onClick={preventDefault} sx={{ mt: 3 }}>
-        See more orders
-      </Link> */}
     </React.Fragment>
   );
 }
